@@ -1,8 +1,4 @@
-@font-face {
-  font-family: "Roboto";
-  src: url("Roboto-Regular.ttf");
 
-}
 
 body{background:#F5F5F5;}
 
@@ -146,7 +142,8 @@ li {
 
 .articleTitle{
   margin-top:15px;
-  font-family:'roboto light';
+  font-family:'Roboto', sans-serif;
+  font-weight: lighter;
   font-size:19px;
   margin-bottom:10px;
   }
@@ -229,7 +226,8 @@ a{
   margin-right:auto;
   text-align:center;
   font-weight:bold;
-  font-family: 'Roboto black';
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
   font-size:22px;
   color:black;
 }
