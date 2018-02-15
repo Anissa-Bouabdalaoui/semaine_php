@@ -4,7 +4,7 @@ Netfoot est un site permettant à un chef cuisinier d'exposer ses recettes.
 Chaque utilisateurs peut s'inscrire et donc poster des commentaires sur des recettes tester.
 
 ## SiteMap
-![SiteMap](https://www.noelshack.com/2018-07-4-1518710981-site-map.png)
+![Texte alternatif](https://www.noelshack.com/2018-07-4-1518710981-site-map.png)
 
 ### SQL
 
