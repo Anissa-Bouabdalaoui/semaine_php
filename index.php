@@ -5,7 +5,8 @@ $bdd = bdd();
 
 // Accès a la page
 if(!isset($_SESSION['id'])){
-  header('Location: inscription.php');
+  header('Location: inscription.php?noprovideddata');
+  exit;
 }
 else {
 
