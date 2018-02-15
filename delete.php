@@ -57,8 +57,8 @@ else {
 
 <form style="padding:300px;" action="dodelete.php" method="post">
     <input type="hidden" name="id" value="<?=$row['id']?>">
-    <label for="">T'es sur de vouloir supprimer <?=$row['pseudo']?></label><br>
-    <input type="submit" value="Je suis certain! OUIIII!">
+    <label for="">Supprimer ce commentaire ? <?=$row['pseudo']?></label><br>
+    <input type="submit" value="Oui !">
 </form>
 </body>
 </html>

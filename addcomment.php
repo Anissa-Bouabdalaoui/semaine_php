@@ -8,7 +8,21 @@ if(!isset($_SESSION['id'])){
     header('Location: inscription.php');
 }
 else {
-    
+
+if(isset($_POST['name']) AND isset($_POST['sujet'])){
+
+    $addPost = new addPost($_POST['name'],$_POST['sujet']);
+    $verif = $addPost->verif();
+    if($verif == "ok"){
+        if($addPost->insert()){
+
+        }
+    }
+    else {
+        $erreur = $verif;
+    }
+
+}
 ?>
 <!DOCTYPE html>
 <html>
