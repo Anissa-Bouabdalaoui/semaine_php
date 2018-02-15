@@ -4,80 +4,80 @@ Netfoot est un site permettant à un chef cuisinier d'exposer ses recettes.
 Chaque utilisateurs peut s'inscrire et donc poster des commentaires sur des recettes tester.
 
 ## SiteMap
-![Texte alternatif](https://www.noelshack.com/2018-07-4-1518710981-site-map.png)
+![Texte alternatif](https://image.noelshack.com/fichiers/2018/07/4/1518710981-site-map.png)
 
 ### SQL
 
---
--- Base de données :  `semaine_php`
---
+--  
+-- Base de données :  `semaine_php`  
+--  
 
--- --------------------------------------------------------
+-- --------------------------------------------------------  
 
---
+--  
 -- Structure de la table `clients`
---
+--  
 
-DROP TABLE IF EXISTS `clients`;
-CREATE TABLE IF NOT EXISTS `clients` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pseudo` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `email` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `mdp` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `admin` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+DROP TABLE IF EXISTS `clients`;  
+CREATE TABLE IF NOT EXISTS `clients` (  
+  `id` int(11) NOT NULL AUTO_INCREMENT,  
+  `pseudo` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,  
+  `email` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,  
+  `mdp` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,  
+  `admin` tinyint(1) NOT NULL,  
+  PRIMARY KEY (`id`)  
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;  
 
---
--- Déchargement des données de la table `clients`
---
+--  
+-- Déchargement des données de la table `clients`  
+--  
 
-INSERT INTO `clients` (`id`, `pseudo`, `email`, `mdp`, `admin`) VALUES
-(12, 'AZERTY', 'AZE@RTY.FR', 'DADlOaHK+Vl1pLlrhsVCNw==', 1),
+INSERT INTO `clients` (`id`, `pseudo`, `email`, `mdp`, `admin`) VALUES  
+(12, 'AZERTY', 'AZE@RTY.FR', 'DADlOaHK+Vl1pLlrhsVCNw==', 1),  
 
--- --------------------------------------------------------
+-- --------------------------------------------------------  
 
---
--- Structure de la table `comments`
---
+--  
+-- Structure de la table `comments`  
+--  
 
-DROP TABLE IF EXISTS `comments`;
-CREATE TABLE IF NOT EXISTS `comments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pseudo` text CHARACTER SET latin1 NOT NULL,
-  `comment` text CHARACTER SET latin1 NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+DROP TABLE IF EXISTS `comments`;  
+CREATE TABLE IF NOT EXISTS `comments` (  
+  `id` int(11) NOT NULL AUTO_INCREMENT,  
+  `pseudo` text CHARACTER SET latin1 NOT NULL,  
+  `comment` text CHARACTER SET latin1 NOT NULL,  
+  PRIMARY KEY (`id`)  
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;  
 
---
--- Déchargement des données de la table `comments`
---
+--  
+-- Déchargement des données de la table `comments`  
+--  
 
-INSERT INTO `comments` (`id`, `pseudo`, `comment`) VALUES
-(id, 'Pseudo test', 'commentaires Test');
+INSERT INTO `comments` (`id`, `pseudo`, `comment`) VALUES  
+(id, 'Pseudo test', 'commentaires Test');  
 
--- --------------------------------------------------------
-
---
--- Structure de la table `recettes`
---
-
-DROP TABLE IF EXISTS `recettes`;
-CREATE TABLE IF NOT EXISTS `recettes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `img` varchar(200) CHARACTER SET latin1 NOT NULL,
-  `nom` text CHARACTER SET latin1 NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+-- --------------------------------------------------------  
 
 --
--- Déchargement des données de la table `recettes`
+-- Structure de la table `recettes`  
 --
 
-INSERT INTO `recettes` (`id`, `img`, `nom`) VALUES
-(6, 'avocat', 'Avocat assaisonnÃ©'),
+DROP TABLE IF EXISTS `recettes`;  
+CREATE TABLE IF NOT EXISTS `recettes` (  
+  `id` int(11) NOT NULL AUTO_INCREMENT,  
+  `img` varchar(200) CHARACTER SET latin1 NOT NULL,  
+  `nom` text CHARACTER SET latin1 NOT NULL,  
+  PRIMARY KEY (`id`)  
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;  
 
-COMMIT;
+--  
+-- Déchargement des données de la table `recettes`  
+--  
+
+INSERT INTO `recettes` (`id`, `img`, `nom`) VALUES  
+(6, 'avocat', 'Avocat assaisonnÃ©'),  
+
+COMMIT;  
 ### Site
 ##### Inscription.php
 
