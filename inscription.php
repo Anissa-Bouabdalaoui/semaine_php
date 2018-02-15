@@ -41,6 +41,18 @@ session_start();
           $erreur = $verif;
       }
   }
+
+$requete = "SELECT 
+  `id`, 
+  `img`, 
+  `nom`
+FROM 
+  `recettes`
+;";
+$stmt = $bdd->prepare($requete);
+$stmt->execute();
+
+
   ?>
 
 <!DOCTYPE html>
@@ -48,9 +60,9 @@ session_start();
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="reset.css" />
-  <title></title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title></title>
 </head>
 
 <body>
@@ -60,7 +72,6 @@ session_start();
       <li><a href="#" class="link">About</a></li>
       <li><a href="#" class="link">Mes recettes</a></li>
       <li> <a href="connexion.php"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518450534-iconuser.png" class="iconNavBarre"></a></li>
-      <li><img src="https://image.noelshack.com/fichiers/2018/07/1/1518450534-question-mark.png" class="iconNavBarre"></li>
     </ul>
   </div>
 
@@ -99,74 +110,30 @@ session_start();
         <div class="inscriptionBouton">
           <input type="submit" value="S'inscrire!" />
         </div>
+
+          <div style="text-decoration: none;padding-top: 5px;">
+              <a href="connexion.php"><span style=";font-size:16px;color:white;font-family: 'Roboto';">J'ai déjà un compte</span></a>
+          </div>
       </form>
     </div>
   </div>
 
 
   <div class="titleArticle">Les recettes à la une</div>
-
+s
   <!-- Articles en Grid css -->
   <br>
   <div class="wrapper">
+      <?php while(false !== $row = $stmt->fetch(PDO::FETCH_ASSOC)):?>
+          <div class="one"><img src='<?=("img/".$row['img'])?>'>
+              <div class="articleTitle"><?=$row['nom']?></div>
+              <a href="pageArticle.php">
+                  <div class="buttonArticle">Voir plus</div>
+              </a>
+          </div>
+      <?php endwhile;?>
 
-    <div class="one"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518465610-food1.png" class="imgArticles">
-      <div class="articleTitle">Gâteaux à la fraise</div>
-      <a href="">
-        <div class="buttonArticle">Voir la recette</div>
-      </a>
-      <div class="nameAutorArticle">Amandine F.</div>
-    </div>
-
-
-    <div class="two"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518465610-food4.jpg" class="imgArticles">
-      <div class="articleTitle">Sandwich à l'avocat</div>
-      <a href="">
-        <div class="buttonArticle">Voir la recette</div>
-      </a>
-      <div class="nameAutorArticle">Pierre B.</div>
-    </div>
-
-
-    <div class="three"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518467919-food2.jpg" class="imgArticles">
-      <div class="articleTitle">Hamburger Cheddar</div>
-      <a href="">
-        <div class="buttonArticle">Voir la recette</div>
-      </a>
-      <div class="nameAutorArticle">Rayane M.</div>
-    </div>
-
-
-    <div class="four"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518467919-food5.jpg" class="imgArticles">
-      <div class="articleTitle">Avocat assaisonné</div>
-      <a href="">
-        <div class="buttonArticle">Voir la recette</div>
-      </a>
-      <div class="nameAutorArticle">Dimitri B.</div>
-    </div>
-
-
-    <div class="five"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518468344-food3.jpg" class="imgArticles">
-      <div class="articleTitle">Salade César</div>
-      <a href="">
-        <div class="buttonArticle">Voir la recette</div>
-      </a>
-      <div class="nameAutorArticle">Dorian D.</div>
-    </div>
-
-
-    <div class="six"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518468278-food6.jpg" class="imgArticles">
-      <div class="articleTitle">Pancake fourré au nutella</div>
-      <a href="">
-        <div class="buttonArticle">Voir la recette</div>
-      </a>
-      <div class="nameAutorArticle">Julien L.</div>
-    </div>
-  </div>
-  <br><br>
-
-  <div class="more" href="#">Tout voir →</div>
-  <!-- footer -->
+      <!-- footer -->
 
 
 

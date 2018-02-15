@@ -1,6 +1,6 @@
 h1{margin-top:200px;}
 body{background:#F5F5F5;}
-
+a{text-decoration: none;}
 .navBarre {
   background-color: white;
   overflow-y: auto;
@@ -133,6 +133,28 @@ li {
 }
 
 /* add a comment*/
+.buttonContainer{
+    width:100%;
+    text-align: right;
+}
+
+.editButton, .suppButton {
+  text-align:right;
+    margin-bottom:5px;
+  background:whitesmoke;
+  border : 1px solid gainsboro;
+  border-radius:30px;
+  padding:7px;
+  font-size:15px;
+  text-transform: lowercase;
+  font-family:'roboto';
+}
+
+.suppButton{
+  color:#CA4E52;
+}
+
+
 .addComment{
   cursor:pointer;
   background: #CA4E52;
@@ -151,6 +173,7 @@ li {
   TEXT-ALIGN:center;
   font-size:15px;
   padding:18px 15px 20px 15px;
+  text-decoration: none;
 
 }
 

@@ -23,6 +23,18 @@ else {
     }
 
 }
+
+    $requete = "SELECT 
+  `id`, 
+  `img`, 
+  `nom`
+FROM 
+  `recettes`
+;";
+    $stmt = $bdd->prepare($requete);
+    $stmt->execute();
+
+
     ?>
 
 <!DOCTYPE html>
@@ -38,6 +50,9 @@ else {
 <body>
   <div class="navBarre">
     <img src="https://image.noelshack.com/fichiers/2018/07/1/1518449265-logo.png" class="logo">
+      <?php if (isset($_SESSION['admin']) &&  $_SESSION['admin'] == 1 ) { ?>
+          <a href="admin.php">ADMINISTRATEUR</a>
+      <?php } ?>
     <ul>
       <li><a href="#" class="link">About</a></li>
       <li><a href="#" class="link">Mes recettes</a></li>
@@ -46,7 +61,6 @@ else {
                 ?>
           <img src="https://image.noelshack.com/fichiers/2018/07/2/1518531470-man-user.png" class="iconNavBarre"></li>
           <li><button class="deconnexion"><a href="deconnexion.php">Deconnexion</a></button></li>
-      <li><img src="https://image.noelshack.com/fichiers/2018/07/1/1518450534-question-mark.png" class="iconNavBarre"></li>
     </ul>
   </div>
 
@@ -66,63 +80,16 @@ else {
   <!-- Articles en Grid css -->
   <br>
   <div class="wrapper">
-
-    <div class="one"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518465610-food1.png" class="imgArticles">
-      <div class="articleTitle">Gâteaux à la fraise</div>
-      <a href="">
-        <div class="buttonArticle">Voir la recette</div>
-      </a>
-      <div class="nameAutorArticle">Amandine F.</div>
-    </div>
-
-
-    <div class="two"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518465610-food4.jpg" class="imgArticles">
-      <div class="articleTitle">Sandwich à l'avocat</div>
-      <a href="">
-        <div class="buttonArticle">Voir la recette</div>
-      </a>
-      <div class="nameAutorArticle">Pierre B.</div>
-    </div>
+      <?php while(false !== $row = $stmt->fetch(PDO::FETCH_ASSOC)):?>
+          <div class="one"><img src='<?=("img/".$row['img'])?>'>
+              <div class="articleTitle"><?=$row['nom']?></div>
+              <a href="pageArticle.php">
+                  <div class="buttonArticle">Voir plus</div>
+              </a>
+          </div>
+      <?php endwhile;?>
 
 
-    <div class="three"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518467919-food2.jpg" class="imgArticles">
-      <div class="articleTitle">Hamburger Cheddar</div>
-      <a href="">
-        <div class="buttonArticle">Voir la recette</div>
-      </a>
-      <div class="nameAutorArticle">Rayane M.</div>
-    </div>
-
-
-    <div class="four"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518467919-food5.jpg" class="imgArticles">
-      <div class="articleTitle">Avocat assaisonné</div>
-      <a href="">
-        <div class="buttonArticle">Voir la recette</div>
-      </a>
-      <div class="nameAutorArticle">Dimitri B.</div>
-    </div>
-
-
-    <div class="five"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518468344-food3.jpg" class="imgArticles">
-      <div class="articleTitle">Salade César</div>
-      <a href="">
-        <div class="buttonArticle">Voir la recette</div>
-      </a>
-      <div class="nameAutorArticle">Dorian D.</div>
-    </div>
-
-
-    <div class="six"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518468278-food6.jpg" class="imgArticles">
-      <div class="articleTitle">Pancake fourré au nutella</div>
-      <a href="">
-        <div class="buttonArticle">Voir la recette</div>
-      </a>
-      <div class="nameAutorArticle">Julien L.</div>
-    </div>
-  </div>
-  <br><br>
-
-  <div class="more" href="#">Tout voir →</div>
   <!-- footer -->
 
 

@@ -45,13 +45,13 @@ li {
 }
 
 .link {
-  color: #DFDFDF;
+  color: #e80d0d;
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 0.15em;
   font-family: 'Roboto', sans-serif;
   display: inline-block;
-  padding: 15px 0px;
+  padding: 23px 0px 10px 0px;
   position: relative;
 }
 
@@ -95,8 +95,12 @@ li {
 
 .fond {
   background: url("https://image.noelshack.com/fichiers/2018/07/1/1518458401-delicious-food-dish-wonderful-food-wallpapers.jpg") no-repeat;
+<<<<<<< HEAD
   height: 900px;
   position: absolute;
+=======
+  height: 700px;
+>>>>>>> 8a5b5f10c479ffa2fec2e599d4cc7a3d7eb0a53e
   margin: 0;
   padding: 0;
   width: 100%;
@@ -106,26 +110,43 @@ li {
 }
 
 .iconRegister {
+<<<<<<< HEAD
   padding-left: 38px;
+=======
+    padding:25px;
+>>>>>>> 8a5b5f10c479ffa2fec2e599d4cc7a3d7eb0a53e
   height: 40px;
 }
 
 .inscriptionContainer {
+<<<<<<< HEAD
   position: absolute;
   z-index: 10;
   width: 240px;
   height: 400px;
   margin-left: 80%;
   margin-top: 15%;
+=======
+  z-index: 10;
+  width: 240px;
+  height: 300px;
+  margin-left: 80%;
+  margin-top: 10%;
+>>>>>>> 8a5b5f10c479ffa2fec2e599d4cc7a3d7eb0a53e
   background-color: #CA4E52;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   color: white;
   border-radius: 20px;
+<<<<<<< HEAD
+=======
+    margin-bottom: 150px;
+>>>>>>> 8a5b5f10c479ffa2fec2e599d4cc7a3d7eb0a53e
 }
 
 
 .inscriptionCenter {
+<<<<<<< HEAD
   padding-top: 30px;
   padding-left: 60px;
 }
@@ -133,6 +154,13 @@ li {
 .connexionCenter {
   padding-top: 30px;
   padding-left: 60px;
+=======
+  text-align:center;
+}
+
+.connexionCenter {  
+    text-align:center;
+>>>>>>> 8a5b5f10c479ffa2fec2e599d4cc7a3d7eb0a53e
 }
 
 
@@ -141,10 +169,16 @@ li {
 }
 
 .connexionContainer {
+<<<<<<< HEAD
   position: absolute;
   z-index: 10;
   width: 240px;
   height: 200px;
+=======
+  z-index: 10;
+  width: 240px;
+  height: 220px;
+>>>>>>> 8a5b5f10c479ffa2fec2e599d4cc7a3d7eb0a53e
   margin-left: 75%;
   margin-top: 20%;
   background-color: #CA4E52;
@@ -152,6 +186,10 @@ li {
   text-transform: uppercase;
   color: white;
   border-radius: 20px;
+<<<<<<< HEAD
+=======
+  margin-bottom: 150px;
+>>>>>>> 8a5b5f10c479ffa2fec2e599d4cc7a3d7eb0a53e
 }
 
 .boldItalic {
@@ -162,7 +200,10 @@ li {
 /* fin du fond burger */
 
 .titleArticle {
+<<<<<<< HEAD
   margin-top: 1000px;
+=======
+>>>>>>> 8a5b5f10c479ffa2fec2e599d4cc7a3d7eb0a53e
   margin-bottom: 80px;
   font-family: 'Roboto', sans-serif;
   font-size: 27px;
@@ -172,11 +213,14 @@ li {
   margin-left: 40px;
 }
 
+<<<<<<< HEAD
 .wrapper {
   max-width: 1300px;
   margin: 0 auto;
   text-align: center;
 }
+=======
+>>>>>>> 8a5b5f10c479ffa2fec2e599d4cc7a3d7eb0a53e
 
 .articleTitle {
   margin-top: 15px;
@@ -229,6 +273,7 @@ a {
 }
 
 .wrapper {
+<<<<<<< HEAD
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 60px;
@@ -272,6 +317,19 @@ a {
   font-family: 'Roboto black';
   font-size: 22px;
   color: black;
+=======
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.one {
+  text-align: center;
+  width: 25% ;
+  height: auto;
+  margin-bottom: 50px;
+>>>>>>> 8a5b5f10c479ffa2fec2e599d4cc7a3d7eb0a53e
 }
 
 /*Footer*/

@@ -14,7 +14,7 @@ class connexion{
 
     public function verif(){
 
-        $requete = $this->bdd->prepare('SELECT * FROM clients WHERE pseudo = :pseudo');
+        $requete = $this->bdd->prepare('SELECT * FROM Clients WHERE pseudo = :pseudo');
         $requete->execute(array('pseudo'=> $this->pseudo));
         $reponse = $requete->fetch();
         if($reponse){
@@ -30,7 +30,7 @@ class connexion{
 
         }
         else {
-            $erreur = 'Ce compte n\'existe pas';
+            $erreur = 'Ce n\'existe pas';
             return $erreur;
          }
 
@@ -38,7 +38,7 @@ class connexion{
     }
 
     public function session(){
-        $requete = $this->bdd->prepare('SELECT id FROM clients WHERE pseudo = :pseudo ');
+        $requete = $this->bdd->prepare('SELECT id FROM Clients WHERE pseudo = :pseudo ');
         $requete->execute(array('pseudo'=>  $this->pseudo));
         $requete = $requete->fetch();
         $_SESSION['id'] = $requete['id'];

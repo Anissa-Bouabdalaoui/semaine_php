@@ -1,29 +1,47 @@
-<?php session_start();
+
+<?php
+
+session_start();
 include_once 'function/function.php';
+include_once 'function/inscription.class.php';
 $bdd = bdd();
 
+if(isset($_POST['pseudo']) AND isset($_POST['email']) AND isset($_POST['mdp'])  AND isset($_POST['mdp2'])){
 
-// Accès a la page
-if(!isset($_SESSION['id'])){
-  header('Location: inscription.php');
-}
-else {
-
-    if(isset($_POST['name']) AND isset($_POST['sujet'])){
-
-    $addPost = new addPost($_POST['name'],$_POST['sujet']);
-    $verif = $addPost->verif();
-    if($verif == "ok"){
-        if($addPost->insert()){
-
+    $inscription = new inscription($_POST['pseudo'],$_POST['email'],$_POST['mdp'],$_POST['mdp2']);
+    $verif = $inscription->verif();
+    if($verif == "ok"){ //Tout est vérifié
+     if($inscription->enregistrement()){
+            if($inscription->session()){ /*Tout est mis en session*/
+                header('Location: index.php');
+            }
         }
-    }
-    else {
-        $erreur = $verif;
+        else{ //Erreur lors de l'enregistrement
+            echo 'Une erreur est survenue';
+        }
+    } else {
+       $erreur = $verif;
     }
 
 }
-    ?>
+session_start();
+  include_once 'function/function.php';
+  include_once 'function/connexion.class.php';
+  $bdd = bdd();
+  if(isset($_POST['pseudo']) AND isset($_POST['mdp'])){
+
+      $connexion = new connexion($_POST['pseudo'],$_POST['mdp']);
+      $verif = $connexion->verif();
+      if($verif =="ok"){
+        if($connexion->session()){
+            header('Location: index.php');
+        }
+      }
+      else {
+          $erreur = $verif;
+      }
+  }
+  ?>
 
 <!DOCTYPE html>
 <html>
@@ -41,11 +59,7 @@ else {
     <ul>
       <li><a href="#" class="link">About</a></li>
       <li><a href="#" class="link">Mes recettes</a></li>
-      <li class="nameUser"><?php
-               echo $_SESSION['pseudo'];
-                ?>
-          <img src="https://image.noelshack.com/fichiers/2018/07/2/1518531470-man-user.png" class="iconNavBarre"></li>
-          <li><button class="deconnexion"><a href="deconnexion.php">Deconnexion</a></button></li>
+      <li> <a href="connexion.php"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518450534-iconuser.png" class="iconNavBarre"></a></li>
       <li><img src="https://image.noelshack.com/fichiers/2018/07/1/1518450534-question-mark.png" class="iconNavBarre"></li>
     </ul>
   </div>
@@ -57,8 +71,37 @@ else {
   <div class="videHome">
 
     <div class="fond">
-      </div>
     </div>
+  </div>
+
+  <div class="inscriptionContainer">
+    <div class="inscriptionCenter">
+      <img src="https://image.noelshack.com/fichiers/2018/07/2/1518531537-man-user-1.png" class="iconRegister">
+      <form class="Inscription" method="post" action="inscription.php">
+        <div class="pseudo">
+          <p>Pseudo</p><input name="pseudo" type="text" placeholder="Pseudo(min. 5 caractères)" required /><br>
+        </div>
+
+        <div class="email">
+          <p>E-mail</p><input name="email" type="text" placeholder="Adresse email" required /><br>
+        </div>
+
+        <div class="mdp">
+          <p>Mot de passe</p><input name="mdp" type="password" placeholder="Mot de passe (min. 5 caractères)" required /><br>
+
+        </div>
+
+        <div class="mdp2">
+          <p>Confirmation</p><input name="mdp2" type="password" placeholder="Confirmation du mot de passe" required /><br>
+        </div>
+        <br>
+
+        <div class="inscriptionBouton">
+          <input type="submit" value="S'inscrire!" />
+        </div>
+      </form>
+    </div>
+  </div>
 
 
   <div class="titleArticle">Les recettes à la une</div>
@@ -69,7 +112,7 @@ else {
 
     <div class="one"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518465610-food1.png" class="imgArticles">
       <div class="articleTitle">Gâteaux à la fraise</div>
-      <a href="pageArticle.php">
+      <a href="">
         <div class="buttonArticle">Voir la recette</div>
       </a>
       <div class="nameAutorArticle">Amandine F.</div>
@@ -173,7 +216,3 @@ else {
 </body>
 
 </html>
-
-<?php
-}
-?>

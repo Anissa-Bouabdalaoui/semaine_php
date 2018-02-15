@@ -53,7 +53,7 @@ if(isset($_POST['pseudo']) AND isset($_POST['mdp'])){
             <p>
                 <input name="pseudo" type="text" placeholder="Pseudo..." size="18" required /><br><br>
                 <input name="mdp" type="password" placeholder="Mot de passe..." size="18" required /><br><br>
-                <input type="submit" value="Connexion !" /> <br>
+                <input type="submit" value="Connexion !" />
                 <?php
                 if(isset($erreur)){
                     echo $erreur;
@@ -73,7 +73,7 @@ if(isset($_POST['pseudo']) AND isset($_POST['mdp'])){
 
       <div class="one"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518465610-food1.png" class="imgArticles">
         <div class="articleTitle">Gâteaux à la fraise</div>
-        <a href="pageArticle.php">
+        <a href="">
           <div class="buttonArticle">Voir la recette</div>
         </a>
         <div class="nameAutorArticle">Amandine F.</div>
