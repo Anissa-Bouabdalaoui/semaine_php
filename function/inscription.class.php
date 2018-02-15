@@ -27,12 +27,12 @@ class inscription{
 
     public function verif(){
 
-        if(strlen($this->pseudo) > 5 AND strlen($this->pseudo) < 20 ){ // Verification du pseudo
+        if(strlen($this->pseudo) > 4 AND strlen($this->pseudo) < 20 ){ // Verification du pseudo
 
            $syntaxe = '#^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,6}$#';
            if(preg_match($syntaxe,$this->email)){ // L'email est correct
 
-               if(strlen($this->mdp) > 5 AND strlen($this->mdp) < 20 ){ //Si le mot de passe respecte la norme imposé
+               if(strlen($this->mdp) > 4 AND strlen($this->mdp) < 20 ){ //Si le mot de passe respecte la norme imposé
 
                    if($this->mdp == $this->mdp2){ //Verification que les mot de passes sont identiques
                        return 'ok';
@@ -70,7 +70,7 @@ class inscription{
         $requete->execute(array(
             'pseudo'=>  $this->pseudo,
             'email' => $this->email,
-            'mdp' => openssl_encrypt(($this->mdp),"AES-128-ECB","oui")
+            'mdp' => password_hash(($this->mdp), PASSWORD_DEFAULT)
         ));
 
         return 1;
