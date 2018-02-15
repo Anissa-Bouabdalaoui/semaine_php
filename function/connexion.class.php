@@ -18,7 +18,7 @@ class connexion{
         $requete->execute(array('pseudo'=> $this->pseudo));
         $reponse = $requete->fetch();
         if($reponse){
-            if(openssl_encrypt(($this->mdp),"AES-128-ECB","oui") == $reponse['mdp']){
+            if(password_verify(($this->mdp),$reponse['mdp'])){
                 return 'ok';
             }
             else {
