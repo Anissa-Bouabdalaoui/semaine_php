@@ -19,7 +19,7 @@ class connexion{
         $reponse = $requete->fetch();
         if($reponse){
 
-            if($this->mdp == $reponse['mdp']){
+            if(openssl_encrypt(($this->mdp),"AES-128-ECB","oui") == $reponse['mdp']){
                 return 'ok';
             }
             else {
@@ -38,11 +38,15 @@ class connexion{
     }
 
     public function session(){
-        $requete = $this->bdd->prepare('SELECT id FROM clients WHERE pseudo = :pseudo ');
+        $requete = $this->bdd->prepare('SELECT `id`,`admin` FROM clients WHERE pseudo = :pseudo ');
         $requete->execute(array('pseudo'=>  $this->pseudo));
         $requete = $requete->fetch();
         $_SESSION['id'] = $requete['id'];
         $_SESSION['pseudo'] = $this->pseudo;
+        $_SESSION['admin'] = $requete['admin'];
+        if ( $_SESSION['admin'] == 1) {
+            $_SESSION['token'] = rand(10,100);
+        }
 
         return 1;
     }

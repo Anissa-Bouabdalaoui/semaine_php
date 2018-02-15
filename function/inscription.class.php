@@ -66,11 +66,11 @@ class inscription{
 
     public function enregistrement(){
 
-        $requete = $this->bdd->prepare('INSERT INTO clients(pseudo,email,mdp) VALUES(:pseudo,:email,:mdp)');
+        $requete = $this->bdd->prepare('INSERT INTO clients(pseudo,email,mdp,admin) VALUES(:pseudo,:email,:mdp,0)');
         $requete->execute(array(
             'pseudo'=>  $this->pseudo,
             'email' => $this->email,
-            'mdp' => $this->mdp
+            'mdp' => openssl_encrypt(($this->mdp),"AES-128-ECB","oui")
         ));
 
         return 1;
