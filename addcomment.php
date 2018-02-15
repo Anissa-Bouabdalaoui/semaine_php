@@ -36,6 +36,9 @@ if(isset($_POST['name']) AND isset($_POST['sujet'])){
 <body>
 <div class="navBarre">
     <img src="https://image.noelshack.com/fichiers/2018/07/1/1518449265-logo.png" class="logo">
+    <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1 ) { ?>
+        <a href="admin.php">ADMINISTRATEUR</a>
+    <?php } ?>
     <ul>
         <li><a href="#" class="link">About</a></li>
         <li><a href="#" class="link">Mes recettes</a></li>

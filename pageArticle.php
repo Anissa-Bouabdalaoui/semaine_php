@@ -47,7 +47,10 @@ $stmt->execute();
 
 <body>
   <div class="navBarre">
-    <img src="https://image.noelshack.com/fichiers/2018/07/1/1518449265-logo.png" class="logo">
+      <a href="index.php"><img src="https://image.noelshack.com/fichiers/2018/07/1/1518449265-logo.png" class="logo"></a>
+      <?php if ( $_SESSION['admin'] == 1 ) { ?>
+      <a href="admin.php">ADMINISTRATEUR</a>
+        <?php } ?>
       <ul>
           <li><a href="#" class="link">About</a></li>
           <li><a href="#" class="link">Mes recettes</a></li>
@@ -69,6 +72,12 @@ $stmt->execute();
 
       <?php while(false !== $row = $stmt->fetch(PDO::FETCH_ASSOC)):?>
           <div class="containComments">
+              <div class="buttonContainer">
+                  <?php if ($row['pseudo'] ==  $_SESSION['pseudo'] || $_SESSION['admin'] == 1 ) {?>
+              <a class="editButton" href="edit.php?id=<?=$row['id']?>">edit</a>
+              <a class="suppButton" href="delete.php?id=<?=$row['id']?>">x</a>
+                  <?php } ?>
+              </div>
               <p>
                  <?=$row['comment'] ?>
               </p>
@@ -81,7 +90,7 @@ $stmt->execute();
 <div class="containComments">
     <div class="buttonContainer">
     <button class="editButton">edit</button>
-    <button class="suppButton">❌</button>
+    <button class="suppButton">x</button>
     </div>
   <p>
   Montius nos tumore inusitato quodam et novo ut rebellis et maiestati recalcitrantes Augustae per haec quae strepit incusat iratus nimirum quod contumacem praefectum.
