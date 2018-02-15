@@ -21,7 +21,6 @@ else {
         }
 
     }
-
     $requete = "SELECT 
   `id`, 
   `img`, 

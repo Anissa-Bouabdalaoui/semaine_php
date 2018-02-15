@@ -132,7 +132,7 @@ s
               </a>
           </div>
       <?php endwhile;?>
-
+  </div>
       <!-- footer -->
 
 
