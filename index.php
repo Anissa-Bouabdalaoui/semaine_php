@@ -9,21 +9,6 @@ if(!isset($_SESSION['id'])){
 }
 else {
 
-    if(isset($_POST['name']) AND isset($_POST['sujet'])){
-
-    $addPost = new addPost($_POST['name'],$_POST['sujet']);
-    $verif = $addPost->verif();
-    if($verif == "ok"){
-        if($addPost->insert()){
-
-        }
-    }
-    else {
-        $erreur = $verif;
-    }
-
-}
-
     $requete = "SELECT 
   `id`, 
   `img`, 
