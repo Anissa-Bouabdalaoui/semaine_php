@@ -88,8 +88,7 @@ FROM
               </a>
           </div>
       <?php endwhile;?>
-
-
+  </div>
   <!-- footer -->
 
 

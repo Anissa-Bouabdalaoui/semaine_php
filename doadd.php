@@ -2,7 +2,6 @@
 include_once 'function/function.php';
 $bdd = bdd();
 
-$bdd = $bdd = new PDO('mysql:host=localhost;dbname=SneakersOmerta', 'root', '', $pdo_options);
 // Accès a la page
 if(!isset($_SESSION['id'])){
     header('Location: inscription.php');
@@ -29,7 +28,6 @@ if(isset($_POST['name']) AND isset($_POST['sujet'])){
 if (!isset($_POST['comment'])) {
     exit;
 }
-require_once "function/function.php";
 $requete = "INSERT INTO 
 `comments` 
 (`pseudo`,`comment`) 

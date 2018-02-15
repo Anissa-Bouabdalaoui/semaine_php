@@ -21,12 +21,10 @@ else {
         }
 
     }
-
-    require_once "function/function.php";
     $requete = "DELETE FROM 
-`recettes` 
-WHERE 
-id = :id;";
+    `recettes` 
+    WHERE 
+    id = :id;";
     $stmt = $bdd->prepare($requete);
     $stmt->bindValue(':id', $_GET['id']);
     $stmt->execute();
