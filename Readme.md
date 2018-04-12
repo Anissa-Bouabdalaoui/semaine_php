@@ -8,14 +8,10 @@ Chaque utilisateurs peut s'inscrire et donc poster des commentaires sur des rece
 
 ### SQL
 
---  
--- Base de données :  `semaine_php`  
---  
+ Base de données :  `semaine_php`  
+--
 
--- --------------------------------------------------------  
-
---  
--- Structure de la table `clients`
+ Structure de la table `clients`
 --  
 
 DROP TABLE IF EXISTS `clients`;  
@@ -49,17 +45,13 @@ CREATE TABLE IF NOT EXISTS `comments` (
   PRIMARY KEY (`id`)  
 ) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;  
 
---  
--- Déchargement des données de la table `comments`  
+ Déchargement des données de la table `comments`  
 --  
 
 INSERT INTO `comments` (`id`, `pseudo`, `comment`) VALUES  
 (id, 'Pseudo test', 'commentaires Test');  
 
--- --------------------------------------------------------  
-
---
--- Structure de la table `recettes`  
+ Structure de la table `recettes`  
 --
 
 DROP TABLE IF EXISTS `recettes`;  
@@ -70,8 +62,7 @@ CREATE TABLE IF NOT EXISTS `recettes` (
   PRIMARY KEY (`id`)  
 ) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;  
 
---  
--- Déchargement des données de la table `recettes`  
+ Déchargement des données de la table `recettes`  
 --  
 
 INSERT INTO `recettes` (`id`, `img`, `nom`) VALUES  
